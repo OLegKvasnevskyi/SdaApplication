@@ -12,6 +12,7 @@ import java.util.List;
 public class OrganizationServiceImpl implements OrganizationService {
 
     private OrganizationRepository organizationRepository;
+
     @Autowired
     public OrganizationServiceImpl(OrganizationRepository organizationRepository) {
         this.organizationRepository = organizationRepository;
@@ -25,16 +26,18 @@ public class OrganizationServiceImpl implements OrganizationService {
 
 
     @Override
-    public Organization getOrganizationById(Long id) {
+    public Organization getOrganizationById(Integer id) {
         return organizationRepository.findById(id).get();
     }
+
     @Override
     public Organization updateOrganization(Organization organization) {
         return organizationRepository.save(organization);
     }
 
+
     @Override
-    public void deleteOrganizationById(Long id) {
+    public void deleteOrganizationById(Integer id) {
         organizationRepository.deleteById(id);
     }
 

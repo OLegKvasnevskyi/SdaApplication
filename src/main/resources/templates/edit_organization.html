@@ -36,7 +36,7 @@
 				<div class = "card-body">
 					<form th:action="@{/organizations/{id} (id=${organization.id})}" th:object = "${organization}" method="POST">
 						<div class ="form-group">
-							<label> Organization First Name </label>
+							<label> Organization Name </label>
 							<input
 							type = "text"
 							name = "name"

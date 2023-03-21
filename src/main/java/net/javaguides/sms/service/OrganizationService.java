@@ -9,9 +9,9 @@ public interface OrganizationService {
 
     Organization saveOrganization(Organization organization);
 
-    Organization getOrganizationById(Long id);
+    Organization getOrganizationById(Integer id);
 
     Organization updateOrganization(Organization organization);
 
-    void deleteOrganizationById(Long id);
+    void deleteOrganizationById(Integer id);
 }

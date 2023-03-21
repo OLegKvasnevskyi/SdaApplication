@@ -1,6 +1,5 @@
 package net.javaguides.sms.controller;
 
-
 import net.javaguides.sms.entity.Organization;
 import net.javaguides.sms.service.OrganizationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
 
 @Controller
 public class OrganizationController {
@@ -25,7 +25,6 @@ public class OrganizationController {
     @GetMapping("/organizations")
     public String listOrganizations(Model model) {
         model.addAttribute("organizations", organizationService.getAllOrganizations());
-        model.toString();
         return "organizations";
     }
 
@@ -44,13 +43,13 @@ public class OrganizationController {
     }
 
     @GetMapping("/organizations/edit/{id}")
-    public String editOrganizationForm(@PathVariable Long id, Model model) {
+    public String editOrganizationForm(@PathVariable Integer id, Model model) {
         model.addAttribute("organization", organizationService.getOrganizationById(id));
         return "edit_organization";
     }
 
     @PostMapping("/organizations/{id}")
-    public String updateOrganization(@PathVariable Long id,
+    public String updateOrganization(@PathVariable Integer id,
                                      @ModelAttribute("organization") Organization organization, Model model) {
         Organization existingOrganization = organizationService.getOrganizationById(id);
         existingOrganization.setId(id);
@@ -60,8 +59,13 @@ public class OrganizationController {
     }
 
     @GetMapping("/organizations/{id}")
-    public String deleteOrganization(@PathVariable Long id) {
+    public String deleteOrganization(@PathVariable Integer id) {
         organizationService.deleteOrganizationById(id);
         return "redirect:/organizations";
+    }
+
+    @GetMapping("/proba")
+    public String home(){
+        return "organizations";
     }
 }
