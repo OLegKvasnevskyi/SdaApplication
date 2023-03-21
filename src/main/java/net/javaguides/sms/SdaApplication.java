@@ -9,8 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class SdaApplication {
 
-    @Autowired
-    private OrganizationRepository studentRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(SdaApplication.class, args);

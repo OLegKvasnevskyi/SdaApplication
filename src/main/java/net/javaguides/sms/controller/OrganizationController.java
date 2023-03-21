@@ -3,6 +3,7 @@ package net.javaguides.sms.controller;
 
 import net.javaguides.sms.entity.Organization;
 import net.javaguides.sms.service.OrganizationService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,8 +16,8 @@ public class OrganizationController {
 
     private OrganizationService organizationService;
 
+    @Autowired
     public OrganizationController(OrganizationService organizationService) {
-        super();
         this.organizationService = organizationService;
     }
 
@@ -57,6 +58,7 @@ public class OrganizationController {
         organizationService.updateOrganization(existingOrganization);
         return "redirect:/organizations";
     }
+
     @GetMapping("/organizations/{id}")
     public String deleteOrganization(@PathVariable Long id) {
         organizationService.deleteOrganizationById(id);
